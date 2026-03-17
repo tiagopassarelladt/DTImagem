@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/06/14 11:25:50.000.810,=rtl.dcp</Transaction>
+    <Transaction>2022/06/14 11:26:00.000.394,C:\Users\Tiago Passarella\Documents\Embarcadero\Studio\Projects\DTImagem.dproj=C:\Users\Tiago Passarella\Documents\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>2022/06/14 11:26:58.000.565,=D:\Dropbox\Componentes\DTImagem\DTImagem.pas</Transaction>
+    <Transaction>2022/06/14 11:27:18.000.759,C:\Users\Tiago Passarella\Documents\Embarcadero\Studio\Projects\DTImg.dproj=C:\Users\Tiago Passarella\Documents\Embarcadero\Studio\Projects\DTImagem.dproj</Transaction>
+    <Transaction>2022/06/14 11:27:22.000.549,D:\Dropbox\Componentes\DTImagem\DTImg.dproj=C:\Users\Tiago Passarella\Documents\Embarcadero\Studio\Projects\DTImg.dproj</Transaction>
+    <Transaction>2022/06/14 12:16:41.000.833,=vclie.dcp</Transaction>
+    <Transaction>2022/06/14 12:16:41.000.872,=IndyProtocols.dcp</Transaction>
+    <Transaction>2022/06/14 12:16:41.000.885,=IndyCore.dcp</Transaction>
+    <Transaction>2022/06/14 12:16:41.000.847,=soaprtl.dcp</Transaction>
+    <Transaction>2022/06/14 12:16:41.000.859,=IndySystem.dcp</Transaction>
+    <Transaction>2022/06/14 12:16:41.000.821,=vcl.dcp</Transaction>
+    <Transaction>2022/06/14 16:45:31.000.400,=vclimg.dcp</Transaction>
+    <Transaction>2023/01/05 10:51:10.000.815,=D:\Dropbox\Componentes\DTImagem\Unit1.pas</Transaction>
+    <Transaction>2023/01/05 10:51:21.000.292,D:\Dropbox\Componentes\DTImagem\USeletor.pas=D:\Dropbox\Componentes\DTImagem\Unit1.pas</Transaction>
+    <Transaction>2023/01/05 10:51:21.000.292,D:\Dropbox\Componentes\DTImagem\USeletor.dfm=D:\Dropbox\Componentes\DTImagem\Unit1.dfm</Transaction>
+    <Transaction>2023/01/05 11:14:44.000.626,=vcldb.dcp</Transaction>
+    <Transaction>2023/01/05 11:14:44.000.657,=dsnap.dcp</Transaction>
+    <Transaction>2024/10/21 11:59:59.000.281,=D:\Dropbox\Componentes\DTOpenSource\DTImagem\Frm_Status.pas</Transaction>
+    <Transaction>2024/10/22 10:03:09.000.769,D:\Dropbox\Componentes\DTOpenSource\DTImagem\Frm_Status.pas=</Transaction>
+    <Transaction>2024/10/22 10:03:28.000.744,=D:\Dropbox\Componentes\DTOpenSource\DTImagem\Frm_StatusX.pas</Transaction>
+    <Transaction>2024/10/22 10:03:36.000.089,D:\Dropbox\Componentes\DTOpenSource\DTImagem\Frm_StatusX.pas=</Transaction>
+    <Transaction>2024/10/22 10:03:45.000.553,=D:\Dropbox\Componentes\DTOpenSource\DTImagem\Frm_StatusX.pas</Transaction>
+  </Transactions>
+</BorlandProject>

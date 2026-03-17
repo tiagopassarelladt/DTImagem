@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6E88A94F-0FE4-4A3E-A68B-33D51BAF03C9}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DTImg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\Demo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DTImg">
+        <MSBuild Projects="DTImg.dproj"/>
+    </Target>
+    <Target Name="DTImg:Clean">
+        <MSBuild Projects="DTImg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DTImg:Make">
+        <MSBuild Projects="DTImg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Demo">
+        <MSBuild Projects="Demo\Demo.dproj"/>
+    </Target>
+    <Target Name="Demo:Clean">
+        <MSBuild Projects="Demo\Demo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Demo:Make">
+        <MSBuild Projects="Demo\Demo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DTImg;Demo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DTImg:Clean;Demo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DTImg:Make;Demo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
