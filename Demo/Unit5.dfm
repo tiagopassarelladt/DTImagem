@@ -363,7 +363,7 @@ object Form5: TForm5
     end
     object btnRedimensionarCustom: TButton
       Left = 15
-      Top = 210
+      Top = 201
       Width = 246
       Height = 35
       Caption = 'Redimensionar com Valores Personalizados'
