@@ -7,6 +7,7 @@ object FrmSeletor: TFrmSeletor
   ClientHeight = 338
   ClientWidth = 165
   Color = clWhite
+  CustomTitleBar.CaptionAlignment = taCenter
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -47,10 +48,20 @@ object FrmSeletor: TFrmSeletor
       ExplicitHeight = 65
     end
   end
-  object cdsIMG: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 48
+  object dsIMG: TDataSource
+    DataSet = cdsIMG
+    Left = 88
+    Top = 216
+  end
+  object cdsIMG: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 40
     Top = 216
     object cdsIMGID: TIntegerField
       FieldName = 'ID'
@@ -59,10 +70,5 @@ object FrmSeletor: TFrmSeletor
       FieldName = 'URL'
       Size = 1000
     end
-  end
-  object dsIMG: TDataSource
-    DataSet = cdsIMG
-    Left = 88
-    Top = 216
   end
 end

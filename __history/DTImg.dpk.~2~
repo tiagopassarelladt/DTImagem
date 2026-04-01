@@ -41,9 +41,9 @@ requires
   dsnap,
   FireDAC;
 
-contains
+ocontains
   DTImagem in 'DTImagem.pas',
   USeletor in 'USeletor.pas' {FrmSeletor},
   Frm_StatusX in 'Frm_StatusX.pas' {frmStatusX};
 
-end.
+d.

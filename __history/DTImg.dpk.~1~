@@ -38,8 +38,7 @@ requires
   IndyCore,
   vclimg,
   vcldb,
-  dsnap,
-  FireDAC;
+  dsnap;
 
 contains
   DTImagem in 'DTImagem.pas',

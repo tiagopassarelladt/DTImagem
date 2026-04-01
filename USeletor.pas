@@ -6,16 +6,18 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Datasnap.DBClient, Vcl.DBCGrids, System.Math,
   Vcl.ExtCtrls, System.Net.HttpClient, Vcl.Imaging.jpeg, Vcl.Imaging.pngimage, Vcl.Imaging.GIFImg,
-  System.Threading;
+  System.Threading, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   TFrmSeletor = class(TForm)
-    cdsIMG: TClientDataSet;
-    cdsIMGID: TIntegerField;
-    cdsIMGURL: TStringField;
     dsIMG: TDataSource;
     ScrollBox1: TScrollBox;
     Shape1: TShape;
+    cdsIMG: TFDMemTable;
+    cdsIMGID: TIntegerField;
+    cdsIMGURL: TStringField;
     procedure DBCtrlGrid1MouseEnter(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormMouseWheelDown(Sender: TObject; Shift: TShiftState;

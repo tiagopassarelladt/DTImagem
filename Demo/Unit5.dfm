@@ -7,6 +7,7 @@ object Form5: TForm5
   ClientHeight = 520
   ClientWidth = 800
   Color = clBtnFace
+  CustomTitleBar.CaptionAlignment = taCenter
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -363,7 +364,7 @@ object Form5: TForm5
     end
     object btnRedimensionarCustom: TButton
       Left = 15
-      Top = 201
+      Top = 210
       Width = 246
       Height = 35
       Caption = 'Redimensionar com Valores Personalizados'
