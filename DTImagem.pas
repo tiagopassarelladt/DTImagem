@@ -702,14 +702,15 @@ begin
         else
       if ImageUrls.Count > 0 then
         begin
-          // automático
+          // automático - busca imagem válida com preferência por JPEG
           imgSelecionada := '';
-
+          
+          // PRIMEIRA TENTATIVA: Procurar especificamente por JPEG válido
           for I := 0 to Pred(ImageUrls.Count) do
           begin
             if Assigned(FrmStatus) then
             begin
-              FrmStatus.lblStatus.Caption := 'Testando imagem ' + IntToStr(I + 1);
+              FrmStatus.lblStatus.Caption := 'Buscando JPEG válido ' + IntToStr(I + 1) + '/' + IntToStr(ImageUrls.Count);
               Application.ProcessMessages;
             end;
 
@@ -723,15 +724,93 @@ begin
                 begin
                   ResponseStream.Position := 0;
                   ResponseStream.SaveToFile(FCaminhoImagem);
-                  imgSelecionada := ImageUrls[I];
-                  DownloadOK := True;
-                  Break;
+                  
+                  // Validar se é JPEG válido
+                  if IsJPEGFile(FCaminhoImagem) then
+                  begin
+                    // Tentar carregar a imagem para garantir que é válida
+                    try
+                      var TempPic := TPicture.Create;
+                      try
+                        TempPic.LoadFromFile(FCaminhoImagem);
+                        
+                        // Sucesso! Imagem JPEG válida encontrada
+                        imgSelecionada := ImageUrls[I];
+                        DownloadOK := True;
+                        Break;
+                      finally
+                        TempPic.Free;
+                      end;
+                    except
+                      // Imagem corrompida, continuar procurando
+                      if FileExists(FCaminhoImagem) then
+                        DeleteFile(FCaminhoImagem);
+                    end;
+                  end
+                  else
+                  begin
+                    // Não é JPEG, deletar e continuar procurando
+                    if FileExists(FCaminhoImagem) then
+                      DeleteFile(FCaminhoImagem);
+                  end;
                 end;
               finally
                 ResponseStream.Free;
                 HttpClient.Free;
               end;
             except
+              // Erro no download, continuar
+            end;
+          end;
+          
+          // SEGUNDA TENTATIVA: Se não encontrou JPEG, aceitar qualquer formato válido
+          if not DownloadOK then
+          begin
+            for I := 0 to Pred(ImageUrls.Count) do
+            begin
+              if Assigned(FrmStatus) then
+              begin
+                FrmStatus.lblStatus.Caption := 'Buscando imagem válida ' + IntToStr(I + 1) + '/' + IntToStr(ImageUrls.Count);
+                Application.ProcessMessages;
+              end;
+
+              try
+                HttpClient := THTTPClient.Create;
+                ResponseStream := TMemoryStream.Create;
+                try
+                  HttpClient.Get(ImageUrls[I], ResponseStream);
+
+                  if ResponseStream.Size > 500 then
+                  begin
+                    ResponseStream.Position := 0;
+                    ResponseStream.SaveToFile(FCaminhoImagem);
+                    
+                    // Tentar carregar a imagem para garantir que é válida
+                    try
+                      var TempPic := TPicture.Create;
+                      try
+                        TempPic.LoadFromFile(FCaminhoImagem);
+                        
+                        // Sucesso! Imagem válida encontrada (qualquer formato)
+                        imgSelecionada := ImageUrls[I];
+                        DownloadOK := True;
+                        Break;
+                      finally
+                        TempPic.Free;
+                      end;
+                    except
+                      // Imagem corrompida, continuar procurando
+                      if FileExists(FCaminhoImagem) then
+                        DeleteFile(FCaminhoImagem);
+                    end;
+                  end;
+                finally
+                  ResponseStream.Free;
+                  HttpClient.Free;
+                end;
+              except
+                // Erro no download, continuar
+              end;
             end;
           end;
         end;
